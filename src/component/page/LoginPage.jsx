@@ -9,7 +9,6 @@ export default class LoginPage extends Component {
         <AuthTemplate>
           <AuthForm type="login" />
         </AuthTemplate>
-        {/* <Button>로그인</Button> */}
       </div>
     );
   }

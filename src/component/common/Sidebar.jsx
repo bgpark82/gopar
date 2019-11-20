@@ -1,28 +1,51 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { FiBox } from 'react-icons/fi';
+import { IoIosArrowBack } from 'react-icons/io';
+import styled, { css } from 'styled-components';
+import List from './List';
+import SubList from './SubList';
 
-const SidebarBlock = styled.div`
-  background: var(--yellow-4);
-  width: 10rem;
-
-  position: absolute;
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+const SideBarBlock = styled.div`
+  padding-top: 0.5rem;
 `;
 
-const Sidebar = () => {
+const SubListBlock = styled.ul`
+  display: none;
+  ${props =>
+    props.open &&
+    css`
+      display: block;
+    `}
+`;
+
+const SideBar = () => {
+  const [open, setOpen] = useState(false);
+  const onClick = () => {
+    setOpen(!open);
+    console.log(open);
+  };
+
   return (
-    <SidebarBlock>
+    <SideBarBlock>
       <ul>
-        <li>1</li>
-        <li>1</li>
+        <List children="유저 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
+        <SubListBlock open={open}>
+          <SubList children="유저 관리" />
+          <SubList children="유저 목록" />
+          <SubList children="유저 입력" />
+        </SubListBlock>
+        <List children="관리자 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
+        <SubListBlock open={open}>
+          <SubList children="유저 관리" />
+          <SubList children="유저 목록" />
+          <SubList children="유저 입력" />
+        </SubListBlock>
+        <List children="테마 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
+        <List children="POI 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
+        <List children="회원 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
       </ul>
-    </SidebarBlock>
+    </SideBarBlock>
   );
 };
 
-export default Sidebar;
+export default SideBar;

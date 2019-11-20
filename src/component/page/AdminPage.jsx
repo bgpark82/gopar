@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Template from '../common/Template';
 
 const AdminBlock = styled.div`
   .main {
@@ -9,6 +10,10 @@ const AdminBlock = styled.div`
 
 export default class AdminPage extends Component {
   render() {
-    return <AdminBlock></AdminBlock>;
+    return (
+      <Template>
+        <AdminBlock>admin</AdminBlock>
+      </Template>
+    );
   }
 }

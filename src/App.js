@@ -1,30 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Route } from 'react-router-dom';
 import './App.css';
-import Header from './component/common/Header';
-
-const AppTemplate = styled.div`
-  .container {
-    display: flex;
-
-    .sidebar {
-      background: var(--yellow-5);
-    }
-    .main {
-      background: var(--cyan-5);
-    }
-  }
-`;
+import AdminPage from './component/page/AdminPage';
+import ContentPage from './component/page/ContentPage';
+import LoginPage from './component/page/LoginPage';
+import UserPage from './component/page/UserPage';
 
 function App() {
   return (
-    <AppTemplate>
-      <Header />
-      <div className="container">
-        <div className="sidebar">sidebar</div>
-        <div className="main">main</div>
-      </div>
-    </AppTemplate>
+    <>
+      <Route path="/" exact component={LoginPage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/admin" component={AdminPage} />
+      <Route path="/user" component={UserPage} />
+      <Route path="/content" component={ContentPage} />
+    </>
   );
 }
 
