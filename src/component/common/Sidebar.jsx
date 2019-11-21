@@ -35,11 +35,6 @@ const SideBar = () => {
           <SubList children="유저 입력" />
         </SubListBlock>
         <List children="관리자 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
-        <SubListBlock open={open}>
-          <SubList children="유저 관리" />
-          <SubList children="유저 목록" />
-          <SubList children="유저 입력" />
-        </SubListBlock>
         <List children="테마 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
         <List children="POI 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
         <List children="회원 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />

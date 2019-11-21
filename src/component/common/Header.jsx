@@ -7,6 +7,8 @@ const HeaderBlock = styled.div`
   background: var(--white);
   border-bottom: var(--border);
   width: 100%;
+  position: fixed;
+  z-index: 10;
 `;
 
 const Wrapper = styled.div`
@@ -14,7 +16,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
 
-  height: 3rem;
+  height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,21 +29,23 @@ const Wrapper = styled.div`
     font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: 0.5px;
+
     .hamburger {
       font-size: 1.5rem;
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
   }
 `;
 
-const Header = () => {
+const Header = ({ onClick }) => {
   return (
     <HeaderBlock>
       <Wrapper>
         <div className="left">
           <div className="logo">Citus</div>
-          <div className="hamburger">
+          <div className="hamburger" onClick={onClick}>
             <FiMenu />
           </div>
         </div>

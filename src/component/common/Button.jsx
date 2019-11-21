@@ -8,9 +8,13 @@ const StyledButton = styled.button`
   font-weight: 600;
   border: var(--border);
   border-radius: 4px;
-  padding: 0.24rem 1rem;
+  padding: 0.15rem 1rem;
   cursor: pointer;
   outline: none;
+
+  &:hover {
+    background: var(--gray-1);
+  }
 
   ${props =>
     props.fullWidth &&

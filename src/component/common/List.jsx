@@ -5,6 +5,7 @@ const ListBlock = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 0.8rem;
+  cursor: pointer;
 
   &:hover {
     background: var(--gray-1);
