@@ -9,7 +9,11 @@ import Select from '../common/Select';
 import Table from '../common/Table';
 import Template from '../common/Template';
 
-const AdminBlock = styled.div``;
+const AdminBlock = styled.div`
+  .pagination {
+    margin: 0 auto;
+  }
+`;
 
 export default class AdminPage extends Component {
   state = {
@@ -54,8 +58,9 @@ export default class AdminPage extends Component {
                 </tr>
               ))}
             </Table>
-
-            <Pagination li={[1, 2, 3, 4, 5]} />
+            <div className="pagination">
+              <Pagination li={[1, 2, 3, 4, 5]} />
+            </div>
           </Block>
         </AdminBlock>
       </Template>

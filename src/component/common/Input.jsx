@@ -6,8 +6,7 @@ const InputBlock = styled.input`
   border-radius: 3px;
   padding: 0.2rem 0.5rem;
   outline: none;
-  /* width: 100%; */
-
+  width: 100%;
   line-height: 1.5;
   font-size: 0.8rem;
 

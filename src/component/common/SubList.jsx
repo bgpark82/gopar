@@ -12,9 +12,9 @@ const SubListBlock = styled.li`
 const SubList = ({ ...props }) => {
   const { children } = { ...props };
   return (
-    <SubListBlock>
-      <Link to="/login">{children}</Link>
-    </SubListBlock>
+    <Link to="/login">
+      <SubListBlock>{children}</SubListBlock>
+    </Link>
   );
 };
 export default SubList;

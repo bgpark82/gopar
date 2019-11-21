@@ -2,18 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 const BlockBlock = styled.div`
+  display: flex;
+  align-items: flex-start; /*push the element to top when it shrinks*/
+  flex-wrap: wrap;
+  overflow: auto; /*prevent from table overflow*/
+
   background: var(--white);
   border: var(--border);
   border-radius: 4px;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  overflow: auto;
   height: 100%;
   width: 100%;
-
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
 `;
 const Block = ({ children }) => {
   return <BlockBlock>{children}</BlockBlock>;

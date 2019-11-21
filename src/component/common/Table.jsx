@@ -5,6 +5,7 @@ const TableBlock = styled.table`
   width: 100%;
   border-collapse: collapse;
   text-align: left;
+  margin-bottom: 1rem;
 
   tr {
     border-bottom: var(--border);
