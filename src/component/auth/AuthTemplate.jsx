@@ -28,6 +28,10 @@ const WhiteBox = styled.div`
     color: var(--gray-8);
     letter-spacing: 1px;
     padding-bottom: 2rem;
+    a {
+      font-size: 2rem;
+      color: var(--gray-7);
+    }
   }
 `;
 
@@ -36,7 +40,7 @@ const AuthTemplate = ({ children }) => {
     <AuthTemplateBlock>
       <WhiteBox>
         <div className="logo-area">
-          <Link to="/">CITUS</Link>
+          <Link to="/">GOPAR</Link>
         </div>
         {children}
       </WhiteBox>

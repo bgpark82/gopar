@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ListBlock = styled.li`
+  color: var(--gray-9);
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 0.8rem;

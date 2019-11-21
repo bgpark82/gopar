@@ -4,6 +4,8 @@ import Axios from '../../../node_modules/axios/index';
 import Block from '../common/Block';
 import BlockItem from '../common/BlockItem';
 import Input from '../common/Input';
+import Pagination from '../common/Pagination';
+import Select from '../common/Select';
 import Table from '../common/Table';
 import Template from '../common/Template';
 
@@ -36,61 +38,7 @@ export default class AdminPage extends Component {
             </BlockItem>
             <BlockItem label="검색조건">
               <Input />
-            </BlockItem>
-          </Block>
-          <Block>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-          </Block>
-          <Block>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-          </Block>
-          <Block>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-          </Block>
-          <Block>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-          </Block>
-          <Block>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
-            </BlockItem>
-            <BlockItem label="검색조건">
-              <Input />
+              <Select options={['전체', '가족', '부부', '학생', '커플']} />
             </BlockItem>
           </Block>
           <Block>
@@ -106,6 +54,8 @@ export default class AdminPage extends Component {
                 </tr>
               ))}
             </Table>
+
+            <Pagination li={[1, 2, 3, 4, 5]} />
           </Block>
         </AdminBlock>
       </Template>

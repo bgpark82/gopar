@@ -12,7 +12,7 @@ const InputBlock = styled.input`
   font-size: 0.8rem;
 
   &:focus {
-    border: 1px solid var(--gray-6);
+    border: var(--border-focus);
   }
 `;
 

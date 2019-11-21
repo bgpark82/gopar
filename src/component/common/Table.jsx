@@ -3,19 +3,27 @@ import styled from 'styled-components';
 
 const TableBlock = styled.table`
   width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 
-  thead {
+  tr {
     border-bottom: var(--border);
   }
 
+  thead {
+    th {
+      padding: 0.5rem;
+    }
+  }
+
   tbody {
-    text-align: center;
     tr {
       &:hover {
         background: var(--gray-1);
       }
       td {
         height: 2rem;
+        padding: 0 0.5rem;
       }
     }
   }

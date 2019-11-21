@@ -15,8 +15,9 @@ const StyledInput = styled.input`
   border: none;
   outline: none;
   font-size: 1rem;
+  font-weight: 600;
   border-bottom: var(--border);
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
   width: 100%;
   color: var(--gray-8);
 
@@ -25,7 +26,7 @@ const StyledInput = styled.input`
   }
 
   & + & {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 `;
 
@@ -50,7 +51,6 @@ const AuthForm = ({ type }) => {
   const text = typeMap[type];
   return (
     <AuthFormBlock>
-      <h3>{text}</h3>
       <form>
         <StyledInput type="text" placeholder="아이디" />
         <StyledInput type="text" placeholder="비밀번호" />
@@ -58,13 +58,7 @@ const AuthForm = ({ type }) => {
           {text}
         </StyledButton>
       </form>
-      <Footer>
-        {text === '로그인' ? (
-          <Link to="/register">회원가입</Link>
-        ) : (
-          <Link to="/login">로그인</Link>
-        )}
-      </Footer>
+      <Footer>{text === '로그인' ? <Link to="/register">회원가입</Link> : <Link to="/login">로그인</Link>}</Footer>
     </AuthFormBlock>
   );
 };

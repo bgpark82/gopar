@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiMenu } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -30,11 +31,20 @@ const Wrapper = styled.div`
     font-weight: 600;
     letter-spacing: 0.5px;
 
+    .logo {
+      font-size: 1.2rem;
+      color: var(--gray-7);
+      display: flex;
+      align-items: center;
+    }
+
     .hamburger {
-      font-size: 1.5rem;
       display: flex;
       align-items: center;
       cursor: pointer;
+      svg {
+        font-size: 1.2rem;
+      }
     }
   }
 `;
@@ -44,7 +54,9 @@ const Header = ({ onClick }) => {
     <HeaderBlock>
       <Wrapper>
         <div className="left">
-          <div className="logo">Citus</div>
+          <div className="logo">
+            <Link to="/">GOPAR</Link>
+          </div>
           <div className="hamburger" onClick={onClick}>
             <FiMenu />
           </div>
