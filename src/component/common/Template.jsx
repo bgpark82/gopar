@@ -4,21 +4,23 @@ import Header from './Header';
 import SideBar from './SideBar';
 
 const AppTemplate = styled.div`
+  /* header, container*/
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  flex-direction: column; /* header + container */
+  min-height: 100vh; /* main height */
 
   .container {
+    /* sidebar, main */
     display: flex;
-    margin-top: 48px;
+    margin-top: 48px; /* header height */
 
     .sidebar {
       position: fixed;
+      left: 0;
+      height: 100vh; /* sidebar height */
       background: var(--white);
       border-right: var(--border);
       width: var(--sidebar-width);
-      height: 100vh;
-      left: 0;
 
       transition: left 0.5s;
     }
@@ -28,10 +30,10 @@ const AppTemplate = styled.div`
     .main {
       display: flex;
       flex-direction: column;
-      overflow: auto;
+      overflow: auto; /* fit block in main */
+      width: 100%;
       background: var(--gray-2);
       padding: 1rem;
-      width: 100%;
       margin-left: var(--sidebar-width);
 
       transition: margin-left 0.5s;
