@@ -22,6 +22,9 @@ const PaginationBlock = styled.ul`
   }
 `;
 
+//thes
+// this is kinda weid
+
 const Pagination = ({ ...props }) => {
   return (
     <PaginationBlock>

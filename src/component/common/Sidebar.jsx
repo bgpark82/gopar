@@ -29,15 +29,16 @@ const SideBar = () => {
     <SideBarBlock>
       <ul>
         <List children="유저 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
-        <SubListBlock open={open}>
-          <SubList children="유저 관리" />
-          <SubList children="유저 목록" />
-          <SubList children="유저 입력" />
-        </SubListBlock>
         <List children="관리자 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
-        <List children="테마 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
-        <List children="POI 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
-        <List children="회원 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} />
+        <SubListBlock open={open}>
+          <SubList children="관리자 페이지" link="/admin/page" />
+        </SubListBlock>
+        <List children="테마 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
+        <SubListBlock open={open}>
+          <SubList children="장소별 테마입력" link="/theme/place" />
+        </SubListBlock>
+        <List children="POI 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
+        <List children="회원 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
       </ul>
     </SideBarBlock>
   );

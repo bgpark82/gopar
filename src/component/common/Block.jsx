@@ -15,6 +15,7 @@ const BlockBlock = styled.div`
   height: 100%;
   width: 100%;
 `;
+
 const Block = ({ children }) => {
   return <BlockBlock>{children}</BlockBlock>;
 };

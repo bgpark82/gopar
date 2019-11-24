@@ -7,7 +7,7 @@ export default class LoginPage extends Component {
     return (
       <div>
         <AuthTemplate>
-          <AuthForm type="login" />
+          <AuthForm type="login" history={this.props.history} />
         </AuthTemplate>
       </div>
     );

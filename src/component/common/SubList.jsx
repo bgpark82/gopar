@@ -10,9 +10,11 @@ const SubListBlock = styled.li`
 `;
 
 const SubList = ({ ...props }) => {
-  const { children } = { ...props };
+  const { children, link } = { ...props };
+  console.log(link);
+
   return (
-    <Link to="/login">
+    <Link to={link}>
       <SubListBlock>{children}</SubListBlock>
     </Link>
   );

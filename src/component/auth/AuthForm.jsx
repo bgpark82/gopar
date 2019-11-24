@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import LoginService from '../../service/LoginService';
 import Button from '../common/Button';
 
 const AuthFormBlock = styled.div`
@@ -46,15 +47,37 @@ const StyledButton = styled(Button)`
   margin-top: 1rem;
 `;
 
-const AuthForm = ({ type }) => {
+const AuthForm = props => {
+  const { type, history } = { ...props };
   const typeMap = { login: '로그인', register: '회원가입' };
   const text = typeMap[type];
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onChangeUsername = e => {
+    setUsername(e.target.value);
+  };
+  const onChangePassword = e => {
+    setPassword(e.target.value);
+  };
+
+  const onSubmit = e => {
+    LoginService.executeBasicAuthentication(username, password)
+      .then(() => {
+        LoginService.login(username, password);
+        e.preventDefault();
+        history.push('/content');
+      })
+      .catch();
+  };
+
   return (
     <AuthFormBlock>
-      <form>
-        <StyledInput type="text" placeholder="아이디" />
-        <StyledInput type="text" placeholder="비밀번호" />
-        <StyledButton fullWidth cyan>
+      <form onSubmit={onSubmit}>
+        <StyledInput type="text" placeholder="아이디" name="username" onChange={onChangeUsername} value={username} />
+        <StyledInput type="text" placeholder="비밀번호" name="password" onChange={onChangePassword} value={password} />
+        <StyledButton fullWidth cyan type="submit">
           {text}
         </StyledButton>
       </form>

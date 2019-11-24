@@ -44,14 +44,14 @@ const AppTemplate = styled.div`
   }
 `;
 
-export default function Template({ children }) {
+export default function Template({ children, history }) {
   const [open, setOpen] = useState(false);
   const onClick = () => {
     setOpen(!open);
   };
   return (
     <AppTemplate>
-      <Header onClick={onClick} />
+      <Header onClick={onClick} history={history} />
       <div className="container">
         <div className={`sidebar ${open ? 'active' : ''}`}>
           <SideBar />

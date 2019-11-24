@@ -8,6 +8,7 @@ import Pagination from '../common/Pagination';
 import Select from '../common/Select';
 import Table from '../common/Table';
 import Template from '../common/Template';
+import TextArea from '../common/TextArea';
 
 const AdminBlock = styled.div`
   .pagination {
@@ -43,6 +44,11 @@ export default class AdminPage extends Component {
             <BlockItem label="검색조건">
               <Input />
               <Select options={['전체', '가족', '부부', '학생', '커플']} />
+            </BlockItem>
+          </Block>
+          <Block>
+            <BlockItem label="글쓰기">
+              <TextArea />
             </BlockItem>
           </Block>
           <Block>

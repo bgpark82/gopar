@@ -2,6 +2,7 @@ import React from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import LoginService from '../../service/LoginService';
 import Button from './Button';
 
 const HeaderBlock = styled.div`
@@ -49,7 +50,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const Header = ({ onClick }) => {
+const Header = ({ onClick, history }) => {
+  const onLogout = () => {
+    LoginService.logout();
+    history.push('/');
+  };
+
   return (
     <HeaderBlock>
       <Wrapper>
@@ -62,7 +68,7 @@ const Header = ({ onClick }) => {
           </div>
         </div>
         <div className="right">
-          <Button>로그인</Button>
+          <Button onClick={onLogout}>로그아웃</Button>
         </div>
       </Wrapper>
     </HeaderBlock>
