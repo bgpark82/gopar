@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const ListBlock = styled.li`
   color: var(--gray-9);
@@ -22,7 +23,7 @@ const ListBlock = styled.li`
 `;
 
 const List = ({ ...props }) => {
-  const { children, arrow, icon, onClick } = { ...props };
+  const { children, icon, onClick } = { ...props };
 
   return (
     <ListBlock onClick={onClick}>
@@ -30,7 +31,9 @@ const List = ({ ...props }) => {
         <div className="icon">{icon}</div>
         <div className="text">{children}</div>
       </div>
-      <div className="arrow">{arrow}</div>
+      <div className="arrow">
+        <IoIosArrowBack />
+      </div>
     </ListBlock>
   );
 };

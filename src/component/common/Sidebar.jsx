@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FiBox } from 'react-icons/fi';
-import { IoIosArrowBack } from 'react-icons/io';
+
 import styled, { css } from 'styled-components';
 import List from './List';
 import SubList from './SubList';
@@ -20,7 +20,11 @@ const SubListBlock = styled.ul`
 
 const SideBar = () => {
   const [open, setOpen] = useState(false);
-  const onClick = () => {
+  const openRef = useRef();
+  console.log(openRef);
+
+  const onClick = e => {
+    console.log(e.target);
     setOpen(!open);
     console.log(open);
   };
@@ -28,17 +32,17 @@ const SideBar = () => {
   return (
     <SideBarBlock>
       <ul>
-        <List children="유저 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
-        <List children="관리자 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
-        <SubListBlock open={open}>
+        <List children="유저 목록" icon={<FiBox />} onClick={onClick} />
+        <List children="관리자 목록" icon={<FiBox />} onClick={onClick} />
+        <SubListBlock open={open} ref={openRef}>
           <SubList children="관리자 페이지" link="/admin/page" />
         </SubListBlock>
-        <List children="테마 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
+        <List children="테마 목록" icon={<FiBox />} onClick={onClick} />
         <SubListBlock open={open}>
           <SubList children="장소별 테마입력" link="/theme/place" />
         </SubListBlock>
-        <List children="POI 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
-        <List children="회원 목록" arrow={<IoIosArrowBack />} icon={<FiBox />} onClick={onClick} />
+        <List children="POI 목록" icon={<FiBox />} onClick={onClick} />
+        <List children="회원 목록" icon={<FiBox />} onClick={onClick} />
       </ul>
     </SideBarBlock>
   );
