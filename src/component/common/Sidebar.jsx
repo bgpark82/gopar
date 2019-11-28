@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { FiBox } from 'react-icons/fi';
-
 import styled, { css } from 'styled-components';
 import List from './List';
 import SubList from './SubList';
