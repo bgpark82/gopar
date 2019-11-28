@@ -48,14 +48,7 @@ class LoginService {
   }
 
   executeJwtBasicAuthentication(username, password) {
-    return Axios({
-      method: 'post',
-      url: 'http://localhost:8080/authenticate',
-      data: {
-        username: username,
-        password: password,
-      },
-    });
+    return Axios.post('http://localhost:8080/authenticate', { username, password });
   }
 
   createBasicAuthToken(username, password) {
