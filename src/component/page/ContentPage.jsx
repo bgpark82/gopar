@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LoginService from '../../service/LoginService';
 import TestService from '../../service/TestService';
 import Block from '../common/Block';
 import Template from '../common/Template';
@@ -10,11 +9,12 @@ export default class ContentPage extends Component {
   };
 
   componentDidMount = async () => {
-    LoginService.setupAxiosInterceptors();
     const req = await TestService.executeHelloWorldService();
-    const res = req.data;
+    console.log(req);
+    const res = await req.data;
     this.setState({ hello: res });
   };
+
   render() {
     return (
       <Template history={this.props.history}>

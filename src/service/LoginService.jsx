@@ -5,13 +5,15 @@ class LoginService {
     // 세션 저장하기
     sessionStorage.setItem('auth', username);
     // Basic Auth 준비
-    this.setupAxiosInterceptors(`Bearer ${token}`);
+    this.setupAxiosInterceptors(token);
   }
 
-  setupAxiosInterceptors(jwtToken) {
+  setupAxiosInterceptors(token) {
     Axios.interceptors.request.use(config => {
       // 세션에 유저가 있으면 요청 header의 authorization에 담아 보내기
-      if (this.isUserLoggedIn()) config.headers.authorization = jwtToken;
+      if (this.isUserLoggedIn()) {
+        config.headers.authorization = `Bearer ${token}`;
+      }
       return config;
     });
   }
