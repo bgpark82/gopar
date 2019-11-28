@@ -29,6 +29,24 @@ class LoginService {
     return Axios.get('http://localhost:8080/basicauth', { headers: { authorization: this.createBasicAuthToken(username, password) } });
   }
 
+  executeJwtAuthentication(username, password) {
+    const json = {
+      grant_type: 'password',
+      username: 'test',
+      password: 'test',
+      scope: 'read write',
+    };
+    return Axios({
+      method: 'post',
+      url: 'https://tm-api.rarara.com/api/v1/oauth/token',
+      headers: {
+        Authorization: this.createBasicAuthToken(username, password),
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      data: json,
+    });
+  }
+
   createBasicAuthToken(username, password) {
     return 'Basic ' + window.btoa(`${username}:${password}`);
   }

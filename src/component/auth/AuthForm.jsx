@@ -62,25 +62,31 @@ const AuthForm = props => {
     setPassword(e.target.value);
   };
 
-  const onSubmit = e => {
-    LoginService.executeBasicAuthentication(username, password)
-      .then(() => {
-        LoginService.login(username, password);
-        e.preventDefault();
-        history.push('/content');
-      })
-      .catch();
+  const onSubmit = async e => {
+    const req = await LoginService.executeJwtAuthentication(username, password);
+    alert(req);
+    const res = await req.data;
+    alert(res);
+    // LoginService.login(username, password);
+    // e.preventDefault();
+    // history.push('/content');
+    // .then(() => {
+    //   LoginService.login(username, password);
+    //   e.preventDefault();
+    //   history.push('/content');
+    // })
+    // .catch();
   };
 
   return (
     <AuthFormBlock>
-      <form onSubmit={onSubmit}>
+      <form>
         <StyledInput type="text" placeholder="아이디" name="username" onChange={onChangeUsername} value={username} />
         <StyledInput type="text" placeholder="비밀번호" name="password" onChange={onChangePassword} value={password} />
-        <StyledButton fullWidth cyan type="submit">
-          {text}
-        </StyledButton>
       </form>
+      <StyledButton fullWidth cyan onClick={onSubmit}>
+        {text}
+      </StyledButton>
       <Footer>{text === '로그인' ? <Link to="/register">회원가입</Link> : <Link to="/login">로그인</Link>}</Footer>
     </AuthFormBlock>
   );
