@@ -31,10 +31,6 @@ class LoginService {
     return Axios.post('http://localhost:8080/authenticate', { username, password });
   }
 
-  executeBasicAuthentication(username, password) {
-    return Axios.get('http://localhost:8080/basicauth', { headers: { authorization: this.createBasicAuthToken(username, password) } });
-  }
-
   executeJwtAuthentication(username, password) {
     const json = {
       grant_type: 'password',
@@ -51,10 +47,6 @@ class LoginService {
       },
       data: json,
     });
-  }
-
-  createBasicAuthToken(username, password) {
-    return 'Basic ' + window.btoa(`${username}:${password}`);
   }
 }
 

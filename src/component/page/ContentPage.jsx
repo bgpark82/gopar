@@ -10,7 +10,6 @@ export default class ContentPage extends Component {
 
   componentDidMount = async () => {
     const req = await TestService.executeHelloWorldService();
-    console.log(req);
     const res = await req.data;
     this.setState({ hello: res });
   };
