@@ -1,6 +1,7 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import AuthenticatedRoute from './component/auth/AuthenticatedRoute';
 import AdminPage from './component/page/AdminPage';
 import ContentPage from './component/page/ContentPage';
 import LoginPage from './component/page/LoginPage';
@@ -9,14 +10,14 @@ import UserPage from './component/page/UserPage';
 
 function App() {
   return (
-    <>
+    <Switch>
       <Route path="/" exact component={LoginPage} />
       <Route path="/login" component={LoginPage} />
-      <Route path="/admin/page" component={AdminPage} />
-      <Route path="/user" component={UserPage} />
-      <Route path="/content" component={ContentPage} />
-      <Route path="/theme/place" component={ThemeDatePage} />
-    </>
+      <AuthenticatedRoute path="/admin/page" component={AdminPage} />
+      <AuthenticatedRoute path="/user" component={UserPage} />
+      <AuthenticatedRoute path="/content" component={ContentPage} />
+      <AuthenticatedRoute path="/theme/place" component={ThemeDatePage} />
+    </Switch>
   );
 }
 

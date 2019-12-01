@@ -46,6 +46,7 @@ const AppTemplate = styled.div`
 
 export default function Template({ children, history }) {
   const [open, setOpen] = useState(false);
+
   const onClick = () => {
     setOpen(!open);
   };

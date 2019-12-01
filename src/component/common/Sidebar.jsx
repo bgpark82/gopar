@@ -20,7 +20,6 @@ const SubListBlock = styled.ul`
 const SideBar = () => {
   const [open, setOpen] = useState(false);
   const openRef = useRef();
-  console.log(openRef);
 
   const onClick = e => {
     console.log(e.target);

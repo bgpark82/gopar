@@ -4,22 +4,23 @@ class LoginService {
   login(username, token) {
     // 세션 저장하기
     sessionStorage.setItem('auth', username);
+    sessionStorage.setItem('jwt', token);
     // Basic Auth 준비
-    this.setupAxiosInterceptors(token);
+    this.setupAxiosInterceptors();
   }
 
-  setupAxiosInterceptors(token) {
+  setupAxiosInterceptors() {
     Axios.interceptors.request.use(config => {
-      // 세션에 유저가 있으면 요청 header의 authorization에 담아 보내기
+      const jwt = sessionStorage.getItem('jwt');
       if (this.isUserLoggedIn()) {
-        config.headers.authorization = `Bearer ${token}`;
+        config.headers.authorization = `Bearer ${jwt}`;
       }
       return config;
     });
   }
 
   isUserLoggedIn() {
-    let username = sessionStorage.getItem('auth');
+    const username = sessionStorage.getItem('auth');
     return username === null ? false : true;
   }
 
@@ -28,7 +29,14 @@ class LoginService {
   }
 
   executeJwtBasicAuthentication(username, password) {
-    return Axios.post('http://localhost:8080/authenticate', { username, password });
+    return Axios({
+      method: 'post',
+      url: 'http://localhost:8080/authenticate',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: { username, password },
+    });
   }
 
   executeJwtAuthentication(username, password) {
