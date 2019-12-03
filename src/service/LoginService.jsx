@@ -1,3 +1,4 @@
+import qs from 'qs';
 import Axios from '../../node_modules/axios/index';
 
 class LoginService {
@@ -46,14 +47,21 @@ class LoginService {
       password: 'test',
       scope: 'read write',
     };
+
+    console.log(json);
+    console.log(qs.stringify(json));
+
     return Axios({
       method: 'post',
       url: 'https://tm-api.rarara.com/api/v1/oauth/token',
-      headers: {
-        Authorization: this.createBasicAuthToken(username, password),
-        'Content-Type': 'application/x-www-form-urlencoded',
+      data: qs.stringify(json),
+      xhrFields: {
+        withCredentials: true,
       },
-      data: json,
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        authorization: 'Basic dGVzdDp0ZXN0',
+      },
     });
   }
 }
