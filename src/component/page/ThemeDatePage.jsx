@@ -4,6 +4,7 @@ import Block from '../common/Block';
 import BlockItem from '../common/BlockItem';
 import Button from '../common/Button';
 import Input from '../common/Input';
+import Table from '../common/Table';
 import Template from '../common/Template';
 
 export default class ThemeDatePage extends Component {
@@ -31,12 +32,16 @@ export default class ThemeDatePage extends Component {
             <Button>찾기</Button>
           </BlockItem>
         </Block>
-        {place.map(item => (
-          <div key={item.id}>
-            <div>{item.username}</div>
-            <div>{item.description}</div>
-          </div>
-        ))}
+        <Block>
+          <Table head={['이름', '이메일']}>
+            {place.map(item => (
+              <tr key={item.id}>
+                <td>{item.username}</td>
+                <td>{item.description}</td>
+              </tr>
+            ))}
+          </Table>
+        </Block>
       </Template>
     );
   }
