@@ -55,11 +55,8 @@ class LoginService {
       method: 'post',
       url: 'https://tm-api.rarara.com/api/v1/oauth/token',
       data: qs.stringify(json),
-      xhrFields: {
-        withCredentials: true,
-      },
       headers: {
-        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'content-type': 'application/x-www-form-urlencoded',
         authorization: 'Basic dGVzdDp0ZXN0',
       },
     });
