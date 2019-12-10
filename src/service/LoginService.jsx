@@ -53,11 +53,12 @@ class LoginService {
 
     return Axios({
       method: 'post',
-      url: 'https://tm-api.rarara.com/api/v1/oauth/token',
+      url: 'http://localhost:8082/api/v1/oauth/token',
       data: qs.stringify(json),
       headers: {
-        'content-type': 'application/x-www-form-urlencoded',
-        authorization: 'Basic dGVzdDp0ZXN0',
+        Authorization: 'Basic dGVzdDp0ZXN0',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Request-Method': 'POST',
       },
     });
   }
