@@ -65,8 +65,9 @@ const AuthForm = props => {
   const onSubmit = async e => {
     // const req = await LoginService.executeJwtAuthentication(username, password);
     // console.log(req.data);
-    const req = await LoginService.executeJwtBasicAuthentication(username, password);
-    const token = await req.data.jwt;
+    const req = await LoginService.executeJwtAuthentication(username, password);
+    const token = await req;
+    console.log(token);
     LoginService.login(username, token);
     history.push('/content');
   };
