@@ -58,7 +58,6 @@ class LoginService {
       headers: {
         Authorization: 'Basic dGVzdDp0ZXN0',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Access-Control-Request-Method': 'POST',
       },
     });
   }
